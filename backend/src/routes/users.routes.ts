@@ -14,7 +14,9 @@ const upload = multer(uploadConfig);
 
 usersRouter.post('/', async (request, response) => {
     const { name, email, password } = request.body;
-
+    //console.log(name);
+    //return response.send('hahahaha');
+    
     const createUser = new CreateUserService();
     const user = await createUser.execute({
         name,
@@ -34,6 +36,7 @@ usersRouter.post('/', async (request, response) => {
 
     return response.json(userWithoutPassword);
     //return response.send();
+    
 });
 
 usersRouter.patch(
